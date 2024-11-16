@@ -1,0 +1,9 @@
+{
+  "item.polycraft.suspicious_substance": "Suspicious Substance",
+  "item.polycraft.suspicious_substance.description": "A mysterious substance that seems to have no use.",
+  "item.polycraft.suspicious_substance.tooltip": "It's probably best not to touch this.",
+
+  "item.polycraft.eolienne": "Eolienne",
+  "item.polycraft.eolienne.description": "A wind turbine that generates electricity.",
+  "item.polycraft.eolienne.tooltip": "It's probably best not to touch this."
+}
