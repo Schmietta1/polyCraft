@@ -23,5 +23,8 @@
 hs_err_pid*
 replay_pid*
 
-#gradle
+# gradle
 .gradle/
+
+# exclude jar needed for gradle
+!gradle/wrapper/gradle-wrapper.jar
