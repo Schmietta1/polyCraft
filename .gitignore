@@ -28,3 +28,7 @@ replay_pid*
 
 # exclude jar needed for gradle
 !gradle/wrapper/gradle-wrapper.jar
+
+#build exclude
+.build/
+.run/
