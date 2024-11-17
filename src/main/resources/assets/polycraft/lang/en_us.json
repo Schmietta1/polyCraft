@@ -5,5 +5,9 @@
 
   "item.polycraft.eolienne": "Eolienne",
   "item.polycraft.eolienne.description": "A wind turbine that generates electricity.",
-  "item.polycraft.eolienne.tooltip": "It's probably best not to touch this."
+  "item.polycraft.eolienne.tooltip": "It's probably best not to touch this.",
+
+  "item.polycraft.custom_food": "Food bizare",
+  "item.polycraft.custom_food.description": "De la nourriture bizare",
+  "item.polycraft.custom_food.tooltip": "It's probably best not to touch this."
 }
