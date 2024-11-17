@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.function.Function;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.component.type.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
 import net.minecraft.registry.RegistryKey;
@@ -22,13 +23,15 @@ public class ModItems {
     // create items
     public static final Item CUSTOM_ITEM = register("suspicious_substance", Item::new, new Item.Settings());
     public static final Item EOLIENNE = register("eolienne", Item::new, new Item.Settings());
+    public static final FoodComponent CUSTOM_FOOD = new FoodComponent.Builder().nutrition(3).saturationModifier(0.3f).build();
+    public static final Item CUSTOM_FOOD_ITEM = register("custom_food", Item::new, new Item.Settings().food(CUSTOM_FOOD));
 
     public static Item register(String path, Function<Item.Settings, Item> factory, Item.Settings settings) {
         final RegistryKey<Item> registryKey = RegistryKey.of(RegistryKeys.ITEM, Identifier.of("polycraft", path));
 
         Item item = Items.register(registryKey, factory, settings);
         ITEMS.add(item);
-
+        
         return item;
     }
 
