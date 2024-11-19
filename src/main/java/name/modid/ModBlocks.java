@@ -1,12 +1,7 @@
 package name.modid;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.function.Function;
-
-import net.minecraft.block.AbstractBlock;
-import net.minecraft.block.Block;
-import net.minecraft.block.PillarBlock;
+import net.minecraft.block.*;
+import net.minecraft.block.enums.NoteBlockInstrument;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
@@ -18,37 +13,44 @@ import net.minecraft.util.Identifier;
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.function.Function;
+
 public class ModBlocks {
+
     public static final List<Block> BLOCKS = new ArrayList<>();
 
-    // Example block registrations
     public static final Block CONDENSED_DIRT = register(
-            new Block(AbstractBlock.Settings.create().sounds(BlockSoundGroup.GRASS)),
             "condensed_dirt",
-            true
+            AbstractBlock.Settings.create()
+                    .mapColor(MapColor.STONE_GRAY)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresTool()
+                    .strength(1.5F, 6.0F)
     );
 
+    public static Block register(String path, AbstractBlock.Settings settings) {
+        Identifier id = Identifier.of("polycraft", path);
+        RegistryKey<Block> key = RegistryKey.of(RegistryKeys.BLOCK, id);
 
-    public static Block register(Block block, String name, boolean shouldRegisterItem) {
-        // Create a valid identifier using Identifier.of
-        Identifier id = Identifier.of("polycraft", name);
+        settings.registryKey(key);
+        Block block = new Block(settings);
+        Registry.register(Registries.BLOCK, key, block);
+        BLOCKS.add(block);
 
-        // Register the block's item if needed
-        if (shouldRegisterItem) {
-            BlockItem blockItem = new BlockItem(block, new Item.Settings());
-            Registry.register(Registries.ITEM, id, blockItem);
-        }
+        // Register the block item
+        BlockItem blockItem = new BlockItem(block, new Item.Settings().useBlockPrefixedTranslationKey().registryKey(RegistryKey.of(RegistryKeys.ITEM, id)));
+        Registry.register(Registries.ITEM, id, blockItem);
 
-        // Register the block and return it
-        return Registry.register(Registries.BLOCK, id, block);
+        return block;
     }
 
-    /**
-     * Initializes the mod blocks and adds them to the custom item group.
-     */
     public static void initialize() {
-        ItemGroupEvents.modifyEntriesEvent(ModItemGroup.CUSTOM_ITEM_GROUP_KEY).register((itemGroup) -> {
-            itemGroup.add(ModBlocks.CONDENSED_DIRT.asItem());
+        ItemGroupEvents.modifyEntriesEvent(ModItemGroup.CUSTOM_ITEM_GROUP_KEY).register(entries -> {
+            for(Block block : BLOCKS) {
+                entries.add(block);
+            }
         });
     }
 }

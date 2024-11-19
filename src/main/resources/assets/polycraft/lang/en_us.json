@@ -9,5 +9,9 @@
 
   "item.polycraft.custom_food": "Food bizare",
   "item.polycraft.custom_food.description": "De la nourriture bizare",
-  "item.polycraft.custom_food.tooltip": "It's probably best not to touch this."
+  "item.polycraft.custom_food.tooltip": "It's probably best not to touch this.",
+
+  "block.polycraft.condensed_dirt": "Block test",
+  "block.polycraft.condensed_dir.description": "un block de test",
+  "block.polycraft.condensed_dir.tooltip": "It's probably best not to touch this."
 }
