@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cube_all",
   "textures": {
-    "all": "PolyCraft:block/condensed_dirt"
+    "all": "polycraft:block/condensed_dirt"
   }
 }
