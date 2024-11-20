@@ -1,0 +1,29 @@
+[
+  {
+    "id": "suspicious_substance",
+    "type": "item",
+    "settings": {
+      "name": "Suspicious Substance",
+      "description": "A mysterious substance that seems to have no use.",
+      "tooltip": "It's probably best not to touch this."
+    }
+  },
+  {
+    "id": "eolienne",
+    "type": "item",
+    "settings": {
+      "name": "Eolienne",
+      "description": "A wind turbine that generates electricity.",
+      "tooltip": "It's probably best not to touch this."
+    }
+  },
+  {
+    "id": "custom_food",
+    "type": "item",
+    "settings": {
+      "name": "Food bizare",
+      "description": "De la nourriture bizare",
+      "tooltip": "It's probably best not to touch this."
+    }
+  }
+]

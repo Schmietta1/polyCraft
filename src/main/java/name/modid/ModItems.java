@@ -31,7 +31,7 @@ public class ModItems {
 
         Item item = Items.register(registryKey, factory, settings);
         ITEMS.add(item);
-        
+
         return item;
     }
 
