@@ -17,6 +17,7 @@ public class PolyCraftDataGenerator implements DataGeneratorEntrypoint {
     @Override
     public void onInitializeDataGenerator(FabricDataGenerator generator) {
         FabricDataGenerator.Pack pack = generator.createPack();
+        pack.addProvider(PolyCraftLanguageGenerator::new);
 
         // Adding a provider example:
         //
@@ -26,16 +27,17 @@ public class PolyCraftDataGenerator implements DataGeneratorEntrypoint {
 
     private static class MyTagGenerator extends FabricTagProvider.ItemTagProvider {
         public MyTagGenerator(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> completableFuture) {
-            super(output, completableFuture);
-        }
+                super(output, completableFuture);
+            }
 
-        private static final TagKey<Item> LA_CHIMIE = TagKey.of(RegistryKeys.ITEM, Identifier.of("polycraft:la_chimie"));
+        private static final TagKey<Item> SMELLY_ITEMS = TagKey.of(RegistryKeys.ITEM, Identifier.of("polycraft", "smelly_items"));
 
         @Override
         protected void configure(RegistryWrapper.WrapperLookup arg) {
-            getOrCreateTagBuilder(LA_CHIMIE)
-                    .add(ModItems.EOLIENNE)
-                    .add(ModItems.CUSTOM_FOOD_ITEM);
+            getOrCreateTagBuilder(SMELLY_ITEMS)
+                    .add(Items.SLIME_BALL)
+                    .add(Items.ROTTEN_FLESH)
+                    .addOptionalTag(ItemTags.DIRT);
         }
     }
 
