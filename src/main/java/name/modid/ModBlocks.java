@@ -26,7 +26,6 @@ public class ModBlocks {
             AbstractBlock.Settings.create()
                     .mapColor(MapColor.STONE_GRAY)
                     .instrument(NoteBlockInstrument.BASEDRUM)
-                    .requiresTool()
                     .strength(1.5F, 6.0F)
     );
 
